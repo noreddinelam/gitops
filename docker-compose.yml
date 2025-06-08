@@ -1,0 +1,33 @@
+services:
+  web:
+    depends_on: [ db ]
+    build:
+      context: .
+    environment:
+      spring.datasource.url: "jdbc:postgresql://db:5432/gitops-dev"
+      spring.datasource.username: "postgres"
+      spring.datasource.password: "admin"
+    ports:
+      - "8080:8080"
+    networks:
+      - gitops-network
+
+  db:
+    image: postgres:15.1
+    ports:
+      - "5555:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: gitops-dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    networks:
+      - gitops-network
+
+volumes:
+  db_data:
+
+networks:
+  gitops-network:
+    driver: bridge
