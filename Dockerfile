@@ -5,5 +5,6 @@ RUN mvn clean package -DskipTests
 
 FROM tomcat:10.1-jdk17
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
+ENV SPRING_PROFILES_ACTIVE=default
 EXPOSE 8080
 CMD ["catalina.sh", "run"]

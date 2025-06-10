@@ -7,6 +7,7 @@ services:
       spring.datasource.url: "jdbc:postgresql://db:5432/gitops-dev"
       spring.datasource.username: "postgres"
       spring.datasource.password: "admin"
+      SPRING_PROFILES_ACTIVE: "dev"
     ports:
       - "8080:8080"
     networks:
