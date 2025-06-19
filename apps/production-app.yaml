@@ -6,7 +6,7 @@ metadata:
 spec:
   project: gitops-learn
   source:
-    repoURL: https://github.com/noreddinelam/gitops.git
+    repoURL: https://github.com/noreddinelam/gitops.git # Ensure this URL matches your repository
     targetRevision: main
     path: gitops-learn
     helm:

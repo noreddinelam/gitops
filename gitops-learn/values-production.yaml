@@ -1,9 +1,10 @@
 replicaCount: 1
 
+# In DevOps approach, the tag is often tied to the environment and we often use the commit hash or a version number.
 image:
-  repository: noreddinelam/gitops
+  repository: noreddinelam/gitops # Ensure this matches your Docker repository
   pullPolicy: IfNotPresent
-  tag: production-1.0.0
+  tag: production-1.0.0 # Update this tag as needed
 
 imagePullSecrets: [ ]
 nameOverride: ""
