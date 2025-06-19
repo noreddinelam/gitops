@@ -118,6 +118,6 @@ helm uninstall gitops-spring-boot-app --namespace gitops # Uninstall the Helm ch
 ## Expose the Application via Ingress
 The application is exposed via an Ingress resource. The Ingress resource is defined in the Helm chart templates and uses the NGINX Ingress Controller. It has an SSL self-signed certificate for HTTPS access.
 ```bash
-kubectl port-forward svc/gitops-spring-boot-app -n gitops 8081:443 # Port-forward the service to access it locally
+kubectl port-forward svc/ingress-nginx-controller -n ingress-nginx 8081:443 # Port-forward the NGINX Ingress Controller service to access the application
 ```
 Then you can access the application at `http://localhost:8081`.
